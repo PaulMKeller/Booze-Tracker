@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5461C0C9C62001A132D /* AppDelegate.swift */; };
+		DA27D5491C0C9C62001A132D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5481C0C9C62001A132D /* FirstViewController.swift */; };
+		DA27D54B1C0C9C62001A132D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D54A1C0C9C62001A132D /* SecondViewController.swift */; };
+		DA27D54E1C0C9C62001A132D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA27D54C1C0C9C62001A132D /* Main.storyboard */; };
+		DA27D5501C0C9C62001A132D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA27D54F1C0C9C62001A132D /* Assets.xcassets */; };
+		DA27D5531C0C9C62001A132D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA27D5511C0C9C62001A132D /* LaunchScreen.storyboard */; };
+		DA27D55E1C0C9C62001A132D /* Booze_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D55D1C0C9C62001A132D /* Booze_TrackerTests.swift */; };
+		DA27D5691C0C9C62001A132D /* Booze_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5681C0C9C62001A132D /* Booze_TrackerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA27D55A1C0C9C62001A132D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA27D53B1C0C9C61001A132D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA27D5421C0C9C62001A132D;
+			remoteInfo = "Booze Tracker";
+		};
+		DA27D5651C0C9C62001A132D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA27D53B1C0C9C61001A132D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA27D5421C0C9C62001A132D;
+			remoteInfo = "Booze Tracker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA27D5431C0C9C62001A132D /* Booze Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booze Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA27D5461C0C9C62001A132D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA27D5481C0C9C62001A132D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DA27D54A1C0C9C62001A132D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DA27D54D1C0C9C62001A132D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA27D54F1C0C9C62001A132D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA27D5521C0C9C62001A132D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA27D5541C0C9C62001A132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA27D5591C0C9C62001A132D /* Booze TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Booze TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA27D55D1C0C9C62001A132D /* Booze_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booze_TrackerTests.swift; sourceTree = "<group>"; };
+		DA27D55F1C0C9C62001A132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA27D5641C0C9C62001A132D /* Booze TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Booze TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA27D5681C0C9C62001A132D /* Booze_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booze_TrackerUITests.swift; sourceTree = "<group>"; };
+		DA27D56A1C0C9C62001A132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA27D5401C0C9C62001A132D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA27D5561C0C9C62001A132D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA27D5611C0C9C62001A132D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA27D53A1C0C9C61001A132D = {
+			isa = PBXGroup;
+			children = (
+				DA27D5451C0C9C62001A132D /* Booze Tracker */,
+				DA27D55C1C0C9C62001A132D /* Booze TrackerTests */,
+				DA27D5671C0C9C62001A132D /* Booze TrackerUITests */,
+				DA27D5441C0C9C62001A132D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA27D5441C0C9C62001A132D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA27D5431C0C9C62001A132D /* Booze Tracker.app */,
+				DA27D5591C0C9C62001A132D /* Booze TrackerTests.xctest */,
+				DA27D5641C0C9C62001A132D /* Booze TrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA27D5451C0C9C62001A132D /* Booze Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				DA27D5461C0C9C62001A132D /* AppDelegate.swift */,
+				DA27D5481C0C9C62001A132D /* FirstViewController.swift */,
+				DA27D54A1C0C9C62001A132D /* SecondViewController.swift */,
+				DA27D54C1C0C9C62001A132D /* Main.storyboard */,
+				DA27D54F1C0C9C62001A132D /* Assets.xcassets */,
+				DA27D5511C0C9C62001A132D /* LaunchScreen.storyboard */,
+				DA27D5541C0C9C62001A132D /* Info.plist */,
+			);
+			path = "Booze Tracker";
+			sourceTree = "<group>";
+		};
+		DA27D55C1C0C9C62001A132D /* Booze TrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA27D55D1C0C9C62001A132D /* Booze_TrackerTests.swift */,
+				DA27D55F1C0C9C62001A132D /* Info.plist */,
+			);
+			path = "Booze TrackerTests";
+			sourceTree = "<group>";
+		};
+		DA27D5671C0C9C62001A132D /* Booze TrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA27D5681C0C9C62001A132D /* Booze_TrackerUITests.swift */,
+				DA27D56A1C0C9C62001A132D /* Info.plist */,
+			);
+			path = "Booze TrackerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA27D5421C0C9C62001A132D /* Booze Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA27D56D1C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze Tracker" */;
+			buildPhases = (
+				DA27D53F1C0C9C62001A132D /* Sources */,
+				DA27D5401C0C9C62001A132D /* Frameworks */,
+				DA27D5411C0C9C62001A132D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Booze Tracker";
+			productName = "Booze Tracker";
+			productReference = DA27D5431C0C9C62001A132D /* Booze Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA27D5581C0C9C62001A132D /* Booze TrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA27D5701C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze TrackerTests" */;
+			buildPhases = (
+				DA27D5551C0C9C62001A132D /* Sources */,
+				DA27D5561C0C9C62001A132D /* Frameworks */,
+				DA27D5571C0C9C62001A132D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA27D55B1C0C9C62001A132D /* PBXTargetDependency */,
+			);
+			name = "Booze TrackerTests";
+			productName = "Booze TrackerTests";
+			productReference = DA27D5591C0C9C62001A132D /* Booze TrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA27D5631C0C9C62001A132D /* Booze TrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA27D5731C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze TrackerUITests" */;
+			buildPhases = (
+				DA27D5601C0C9C62001A132D /* Sources */,
+				DA27D5611C0C9C62001A132D /* Frameworks */,
+				DA27D5621C0C9C62001A132D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA27D5661C0C9C62001A132D /* PBXTargetDependency */,
+			);
+			name = "Booze TrackerUITests";
+			productName = "Booze TrackerUITests";
+			productReference = DA27D5641C0C9C62001A132D /* Booze TrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA27D53B1C0C9C61001A132D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Planet K Games";
+				TargetAttributes = {
+					DA27D5421C0C9C62001A132D = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					DA27D5581C0C9C62001A132D = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = DA27D5421C0C9C62001A132D;
+					};
+					DA27D5631C0C9C62001A132D = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = DA27D5421C0C9C62001A132D;
+					};
+				};
+			};
+			buildConfigurationList = DA27D53E1C0C9C61001A132D /* Build configuration list for PBXProject "Booze Tracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA27D53A1C0C9C61001A132D;
+			productRefGroup = DA27D5441C0C9C62001A132D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA27D5421C0C9C62001A132D /* Booze Tracker */,
+				DA27D5581C0C9C62001A132D /* Booze TrackerTests */,
+				DA27D5631C0C9C62001A132D /* Booze TrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA27D5411C0C9C62001A132D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA27D5531C0C9C62001A132D /* LaunchScreen.storyboard in Resources */,
+				DA27D5501C0C9C62001A132D /* Assets.xcassets in Resources */,
+				DA27D54E1C0C9C62001A132D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA27D5571C0C9C62001A132D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA27D5621C0C9C62001A132D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA27D53F1C0C9C62001A132D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA27D54B1C0C9C62001A132D /* SecondViewController.swift in Sources */,
+				DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */,
+				DA27D5491C0C9C62001A132D /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA27D5551C0C9C62001A132D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA27D55E1C0C9C62001A132D /* Booze_TrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA27D5601C0C9C62001A132D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA27D5691C0C9C62001A132D /* Booze_TrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA27D55B1C0C9C62001A132D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA27D5421C0C9C62001A132D /* Booze Tracker */;
+			targetProxy = DA27D55A1C0C9C62001A132D /* PBXContainerItemProxy */;
+		};
+		DA27D5661C0C9C62001A132D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA27D5421C0C9C62001A132D /* Booze Tracker */;
+			targetProxy = DA27D5651C0C9C62001A132D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA27D54C1C0C9C62001A132D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA27D54D1C0C9C62001A132D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA27D5511C0C9C62001A132D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA27D5521C0C9C62001A132D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA27D56B1C0C9C62001A132D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA27D56C1C0C9C62001A132D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA27D56E1C0C9C62001A132D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Booze Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA27D56F1C0C9C62001A132D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Booze Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DA27D5711C0C9C62001A132D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Booze TrackerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Booze Tracker.app/Booze Tracker";
+			};
+			name = Debug;
+		};
+		DA27D5721C0C9C62001A132D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Booze TrackerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Booze Tracker.app/Booze Tracker";
+			};
+			name = Release;
+		};
+		DA27D5741C0C9C62001A132D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Booze TrackerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Booze Tracker";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DA27D5751C0C9C62001A132D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Booze TrackerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Booze Tracker";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA27D53E1C0C9C61001A132D /* Build configuration list for PBXProject "Booze Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA27D56B1C0C9C62001A132D /* Debug */,
+				DA27D56C1C0C9C62001A132D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA27D56D1C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA27D56E1C0C9C62001A132D /* Debug */,
+				DA27D56F1C0C9C62001A132D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA27D5701C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze TrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA27D5711C0C9C62001A132D /* Debug */,
+				DA27D5721C0C9C62001A132D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA27D5731C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze TrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA27D5741C0C9C62001A132D /* Debug */,
+				DA27D5751C0C9C62001A132D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA27D53B1C0C9C61001A132D /* Project object */;
+}
