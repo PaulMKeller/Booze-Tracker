@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5461C0C9C62001A132D /* AppDelegate.swift */; };
-		DA27D5491C0C9C62001A132D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5481C0C9C62001A132D /* FirstViewController.swift */; };
-		DA27D54B1C0C9C62001A132D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D54A1C0C9C62001A132D /* SecondViewController.swift */; };
+		DA27D5491C0C9C62001A132D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5481C0C9C62001A132D /* HomeViewController.swift */; };
+		DA27D54B1C0C9C62001A132D /* BoozeTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D54A1C0C9C62001A132D /* BoozeTrackerViewController.swift */; };
 		DA27D54E1C0C9C62001A132D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA27D54C1C0C9C62001A132D /* Main.storyboard */; };
 		DA27D5501C0C9C62001A132D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA27D54F1C0C9C62001A132D /* Assets.xcassets */; };
 		DA27D5531C0C9C62001A132D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA27D5511C0C9C62001A132D /* LaunchScreen.storyboard */; };
 		DA27D55E1C0C9C62001A132D /* Booze_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D55D1C0C9C62001A132D /* Booze_TrackerTests.swift */; };
 		DA27D5691C0C9C62001A132D /* Booze_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5681C0C9C62001A132D /* Booze_TrackerUITests.swift */; };
+		DA27D5791C0C9F43001A132D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5781C0C9F43001A132D /* HistoryViewController.swift */; };
+		DA27D57B1C0CA43D001A132D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,8 @@
 /* Begin PBXFileReference section */
 		DA27D5431C0C9C62001A132D /* Booze Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booze Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA27D5461C0C9C62001A132D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA27D5481C0C9C62001A132D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DA27D54A1C0C9C62001A132D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DA27D5481C0C9C62001A132D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DA27D54A1C0C9C62001A132D /* BoozeTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeTrackerViewController.swift; sourceTree = "<group>"; };
 		DA27D54D1C0C9C62001A132D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA27D54F1C0C9C62001A132D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA27D5521C0C9C62001A132D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		DA27D5641C0C9C62001A132D /* Booze TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Booze TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA27D5681C0C9C62001A132D /* Booze_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booze_TrackerUITests.swift; sourceTree = "<group>"; };
 		DA27D56A1C0C9C62001A132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA27D5781C0C9F43001A132D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				DA27D5461C0C9C62001A132D /* AppDelegate.swift */,
-				DA27D5481C0C9C62001A132D /* FirstViewController.swift */,
-				DA27D54A1C0C9C62001A132D /* SecondViewController.swift */,
+				DA27D5481C0C9C62001A132D /* HomeViewController.swift */,
+				DA27D54A1C0C9C62001A132D /* BoozeTrackerViewController.swift */,
 				DA27D54C1C0C9C62001A132D /* Main.storyboard */,
 				DA27D54F1C0C9C62001A132D /* Assets.xcassets */,
 				DA27D5511C0C9C62001A132D /* LaunchScreen.storyboard */,
 				DA27D5541C0C9C62001A132D /* Info.plist */,
+				DA27D5781C0C9F43001A132D /* HistoryViewController.swift */,
+				DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */,
 			);
 			path = "Booze Tracker";
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 				TargetAttributes = {
 					DA27D5421C0C9C62001A132D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6CGSY8527L;
 					};
 					DA27D5581C0C9C62001A132D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -259,9 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA27D54B1C0C9C62001A132D /* SecondViewController.swift in Sources */,
+				DA27D54B1C0C9C62001A132D /* BoozeTrackerViewController.swift in Sources */,
 				DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */,
-				DA27D5491C0C9C62001A132D /* FirstViewController.swift in Sources */,
+				DA27D5491C0C9C62001A132D /* HomeViewController.swift in Sources */,
+				DA27D57B1C0CA43D001A132D /* SettingsViewController.swift in Sources */,
+				DA27D5791C0C9F43001A132D /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +410,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Booze Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,7 +423,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Booze Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
