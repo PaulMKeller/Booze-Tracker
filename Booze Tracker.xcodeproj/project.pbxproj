@@ -17,6 +17,7 @@
 		DA27D5691C0C9C62001A132D /* Booze_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5681C0C9C62001A132D /* Booze_TrackerUITests.swift */; };
 		DA27D5791C0C9F43001A132D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5781C0C9F43001A132D /* HistoryViewController.swift */; };
 		DA27D57B1C0CA43D001A132D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */; };
+		DA4475211C15CEA3004ABC04 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4475201C15CEA3004ABC04 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		DA27D56A1C0C9C62001A132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA27D5781C0C9F43001A132D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DA4475201C15CEA3004ABC04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4475211C15CEA3004ABC04 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 		DA27D53A1C0C9C61001A132D = {
 			isa = PBXGroup;
 			children = (
+				DA4475201C15CEA3004ABC04 /* iAd.framework */,
 				DA27D5451C0C9C62001A132D /* Booze Tracker */,
 				DA27D55C1C0C9C62001A132D /* Booze TrackerTests */,
 				DA27D5671C0C9C62001A132D /* Booze TrackerUITests */,
@@ -499,6 +503,7 @@
 				DA27D56F1C0C9C62001A132D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA27D5701C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +512,7 @@
 				DA27D5721C0C9C62001A132D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA27D5731C0C9C62001A132D /* Build configuration list for PBXNativeTarget "Booze TrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +521,7 @@
 				DA27D5751C0C9C62001A132D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
