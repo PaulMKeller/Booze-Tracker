@@ -18,6 +18,8 @@
 		DA27D5791C0C9F43001A132D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5781C0C9F43001A132D /* HistoryViewController.swift */; };
 		DA27D57B1C0CA43D001A132D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */; };
 		DA4475211C15CEA3004ABC04 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4475201C15CEA3004ABC04 /* iAd.framework */; };
+		DA73ECCC1C1F0A9E00E1B2A4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA73ECCB1C1F0A9E00E1B2A4 /* CoreData.framework */; };
+		DA78340F1C1C38C900A767E3 /* SessionPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78340E1C1C38C900A767E3 /* SessionPrice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		DA27D5781C0C9F43001A132D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DA4475201C15CEA3004ABC04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		DA73ECCB1C1F0A9E00E1B2A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DA78340E1C1C38C900A767E3 /* SessionPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionPrice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA73ECCC1C1F0A9E00E1B2A4 /* CoreData.framework in Frameworks */,
 				DA4475211C15CEA3004ABC04 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +91,7 @@
 		DA27D53A1C0C9C61001A132D = {
 			isa = PBXGroup;
 			children = (
+				DA73ECCB1C1F0A9E00E1B2A4 /* CoreData.framework */,
 				DA4475201C15CEA3004ABC04 /* iAd.framework */,
 				DA27D5451C0C9C62001A132D /* Booze Tracker */,
 				DA27D55C1C0C9C62001A132D /* Booze TrackerTests */,
@@ -116,6 +122,7 @@
 				DA27D5541C0C9C62001A132D /* Info.plist */,
 				DA27D5781C0C9F43001A132D /* HistoryViewController.swift */,
 				DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */,
+				DA78340E1C1C38C900A767E3 /* SessionPrice.swift */,
 			);
 			path = "Booze Tracker";
 			sourceTree = "<group>";
@@ -270,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA78340F1C1C38C900A767E3 /* SessionPrice.swift in Sources */,
 				DA27D54B1C0C9C62001A132D /* BoozeTrackerViewController.swift in Sources */,
 				DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */,
 				DA27D5491C0C9C62001A132D /* HomeViewController.swift in Sources */,
