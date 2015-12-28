@@ -8,17 +8,10 @@
 
 import Foundation
 
-class SessionPrice {
-    var itemName: String
-    var cost: Int
+class SessionPriceOLD {
+    // TODO
+    // Show and hide the picker
+    // Center the currency text box -- DONE
+    // Singleton iAd
     
-    init() {
-        self.itemName = ""
-        self.cost = 0
-    }
-    
-    init(ItemName: String, Cost: Int) {
-        self.itemName = ItemName
-        self.cost = Cost
-    }
 }
