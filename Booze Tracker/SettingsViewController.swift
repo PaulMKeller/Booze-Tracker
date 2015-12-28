@@ -12,13 +12,33 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     var pickerData: [String] = [String]()
     @IBOutlet var pickerView: UIPickerView!
+    var sessionPriceList: PriceList = PriceList(useZero: false)
+    
+    @IBOutlet var beer: UITextField!
+    @IBOutlet var redWine: UITextField!
+    @IBOutlet var whiteWine: UITextField!
+    @IBOutlet var spirit: UITextField!
+    @IBOutlet var shots: UITextField!
+    @IBOutlet var cocktail: UITextField!
+    @IBOutlet var bubbles: UITextField!
+    @IBOutlet var softDrink: UITextField!
+    @IBOutlet var coffeeTea: UITextField!
+    @IBOutlet var barSnacks: UITextField!
+    @IBOutlet var liteBites: UITextField!
+    @IBOutlet var bigFood: UITextField!
+    @IBOutlet var currencySymbol: UITextField!
+    @IBOutlet var currency: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        CreateCurrencyArray()
+        //CreateCurrencyArray()
+        pickerData = ["$", "£", "€", "¥", "inr", "Other"]
         SetupPickerData()
+        
+        FormLoad()
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,6 +65,22 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func SetupPickerData(){
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
+    }
+    
+    func FormLoad(){
+        beer.text = String(sessionPriceList.beer)
+        redWine.text = String(sessionPriceList.redWine)
+        whiteWine.text = String(sessionPriceList.whiteWine)
+        spirit.text = String(sessionPriceList.spirit)
+        shots.text = String(sessionPriceList.shots)
+        cocktail.text = String(sessionPriceList.cocktail)
+        bubbles.text = String(sessionPriceList.bubbles)
+        softDrink.text = String(sessionPriceList.softDrink)
+        coffeeTea.text = String(sessionPriceList.coffeeTea)
+        barSnacks.text = String(sessionPriceList.barSnacks)
+        liteBites.text = String(sessionPriceList.liteBites)
+        bigFood.text = String(sessionPriceList.mainMeal)
+        currency.text = sessionPriceList.currency
     }
     
     func CreateCurrencyArray(){

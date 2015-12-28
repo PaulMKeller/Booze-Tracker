@@ -529,13 +529,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Cost" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfB-Ni-m4X">
                                 <rect key="frame" x="164" y="100" width="97" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Currency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nn-Rq-PSF">
                                 <rect key="frame" x="37" y="66" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1A-Qv-rbc">
@@ -546,7 +546,21 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="Cwv-Cr-Gwj"/>
                     <connections>
+                        <outlet property="barSnacks" destination="zqk-Xi-Hhr" id="DDH-jr-v9G"/>
+                        <outlet property="beer" destination="Tz7-mq-GwI" id="Xbj-tY-hC8"/>
+                        <outlet property="bigFood" destination="R4f-Yi-JY5" id="KGE-mD-yjI"/>
+                        <outlet property="bubbles" destination="VVk-zR-J4L" id="TCn-AO-5wX"/>
+                        <outlet property="cocktail" destination="Ivg-Dq-ta2" id="k2F-0k-poU"/>
+                        <outlet property="coffeeTea" destination="1aa-qC-Z8D" id="BBG-HJ-eyz"/>
+                        <outlet property="currency" destination="Mbi-Aj-viI" id="bLh-5k-v22"/>
+                        <outlet property="currencySymbol" destination="Mbi-Aj-viI" id="YAh-8z-PJZ"/>
+                        <outlet property="liteBites" destination="2Cr-7L-d8Q" id="gQY-FQ-kAh"/>
                         <outlet property="pickerView" destination="r1A-Qv-rbc" id="ZJ2-On-hKU"/>
+                        <outlet property="redWine" destination="0ep-v1-P0c" id="N8P-aW-pEF"/>
+                        <outlet property="shots" destination="RK4-XL-CWk" id="FJZ-Wl-imE"/>
+                        <outlet property="softDrink" destination="uHO-Uc-yyk" id="mJS-jT-zrE"/>
+                        <outlet property="spirit" destination="Nlq-mS-c9S" id="PfW-Zw-noZ"/>
+                        <outlet property="whiteWine" destination="n0L-WP-pqY" id="LKz-yj-GZ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="to2-Ae-W7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
