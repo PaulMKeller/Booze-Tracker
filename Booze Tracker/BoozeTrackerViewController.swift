@@ -10,6 +10,9 @@ import UIKit
 
 class BoozeTrackerViewController: UIViewController {
     
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var sessionPriceList: PriceList = PriceList(useZero: true)
+        
     @IBOutlet var beerLabel: UILabel!
     @IBOutlet var redWineLabel: UILabel!
     @IBOutlet var whiteWineLabel: UILabel!
@@ -37,6 +40,7 @@ class BoozeTrackerViewController: UIViewController {
     @IBOutlet var mainMealStepper: UIStepper!
     @IBAction func newSession(sender: AnyObject) {
         ClearAllTotals()
+        refreshSessionPriceList()
     }
     
 
@@ -44,7 +48,7 @@ class BoozeTrackerViewController: UIViewController {
         let labelName = getLabelNameFromTag(sender.tag)
         labelName.text = Int(sender.value).description
         
-        runningTotalLabel.text = "$ \(updateRunningTotal())"
+        runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
     }
     
     
@@ -52,8 +56,13 @@ class BoozeTrackerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        runningTotalLabel.text = "$ \(updateRunningTotal())"
+        refreshSessionPriceList()
+        runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        refreshSessionPriceList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,29 +121,29 @@ class BoozeTrackerViewController: UIViewController {
         switch stepperTag {
             
         case 0: //beerLabel
-            return 15
+            return sessionPriceList.beer
         case 1: //redWineLabel
-            return 11
+            return sessionPriceList.redWine
         case 2: //whiteWineLabel
-            return 11
+            return sessionPriceList.whiteWine
         case 3: //spiritLabel
-            return 16
+            return sessionPriceList.spirit
         case 4: //shotsLabel
-            return 10
+            return sessionPriceList.shots
         case 5: //cocktailLabel
-            return 20
+            return sessionPriceList.cocktail
         case 6: //bubblesLabel
-            return 22
+            return sessionPriceList.bubbles
         case 7: //softLabel
-            return 5
+            return sessionPriceList.softDrink
         case 8: //coffeeLabel
-            return 5
+            return sessionPriceList.coffeeTea
         case 9: //barSnacksLabel
-            return 5
+            return sessionPriceList.barSnacks
         case 10: //liteBitesLabel
-            return 10
+            return sessionPriceList.liteBites
         case 11: //bigFoodLabel
-            return 20
+            return sessionPriceList.mainMeal
         default:
             return 0
         }
@@ -167,7 +176,28 @@ class BoozeTrackerViewController: UIViewController {
         barSnacksLabel.text = String("0")
         liteBitesLabel.text = String("0")
         bigFoodLabel.text = String("0")
-        runningTotalLabel.text = "$ \(updateRunningTotal())"
+        runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
+    }
+    
+    func refreshSessionPriceList(){
+        sessionPriceList.beer = defaults.integerForKey("beer")
+        sessionPriceList.redWine = defaults.integerForKey("redWine")
+        sessionPriceList.whiteWine = defaults.integerForKey("whiteWine")
+        sessionPriceList.spirit = defaults.integerForKey("spirit")
+        sessionPriceList.shots = defaults.integerForKey("shots")
+        sessionPriceList.cocktail = defaults.integerForKey("cocktail")
+        sessionPriceList.bubbles = defaults.integerForKey("bubbles")
+        sessionPriceList.softDrink = defaults.integerForKey("softDrink")
+        sessionPriceList.coffeeTea = defaults.integerForKey("coffeeTea")
+        sessionPriceList.barSnacks = defaults.integerForKey("barSnacks")
+        sessionPriceList.liteBites = defaults.integerForKey("liteBites")
+        sessionPriceList.mainMeal = defaults.integerForKey("mainMeal")
+        
+        
+        if (defaults.stringForKey("currency") != nil)
+        {
+            sessionPriceList.currency = defaults.stringForKey("currency")!
+        }
     }
 
 }
