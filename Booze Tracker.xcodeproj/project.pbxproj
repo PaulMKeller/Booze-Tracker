@@ -24,6 +24,7 @@
 		DA8E67161C324D1A00A2BCB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67151C324D1A00A2BCB6 /* CoreGraphics.framework */; };
 		DA8E67181C324D2200A2BCB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67171C324D2200A2BCB6 /* UIKit.framework */; };
 		DA8E671A1C324D2A00A2BCB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67191C324D2A00A2BCB6 /* Foundation.framework */; };
+		DA8E671C1C32614600A2BCB6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E671B1C32614600A2BCB6 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DA8E67151C324D1A00A2BCB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DA8E67171C324D2200A2BCB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA8E67191C324D2A00A2BCB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA8E671B1C32614600A2BCB6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8E671C1C32614600A2BCB6 /* Social.framework in Frameworks */,
 				DA8E671A1C324D2A00A2BCB6 /* Foundation.framework in Frameworks */,
 				DA8E67181C324D2200A2BCB6 /* UIKit.framework in Frameworks */,
 				DA8E67161C324D1A00A2BCB6 /* CoreGraphics.framework in Frameworks */,
@@ -102,6 +105,7 @@
 		DA27D53A1C0C9C61001A132D = {
 			isa = PBXGroup;
 			children = (
+				DA8E671B1C32614600A2BCB6 /* Social.framework */,
 				DA8E67191C324D2A00A2BCB6 /* Foundation.framework */,
 				DA8E67171C324D2200A2BCB6 /* UIKit.framework */,
 				DA8E67151C324D1A00A2BCB6 /* CoreGraphics.framework */,
