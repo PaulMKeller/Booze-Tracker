@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import iAd
 
-class BoozeTrackerViewController: UIViewController {
+class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     
     var defaults = NSUserDefaults.standardUserDefaults()
     var sessionPriceList: PriceList = PriceList(useZero: true)
+    var UIiAd: ADBannerView = ADBannerView()
         
     @IBOutlet var beerLabel: UILabel!
     @IBOutlet var redWineLabel: UILabel!
@@ -59,10 +61,6 @@ class BoozeTrackerViewController: UIViewController {
         refreshSessionPriceList()
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
         
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        refreshSessionPriceList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -199,6 +197,40 @@ class BoozeTrackerViewController: UIViewController {
             sessionPriceList.currency = defaults.stringForKey("currency")!
         }
     }
-
+    
+    func appDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIiAd.delegate = self
+        UIiAd = self.appDelegate().UIiAd
+        UIiAd.frame = CGRectMake(0, 21, 0, 0)
+        view.addSubview(UIiAd)
+        
+        refreshSessionPriceList()
+        runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        UIiAd.delegate = nil
+        UIiAd.removeFromSuperview()
+    }
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        //UIiAd.hidden = false
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(1)
+        UIiAd.alpha = 1
+        UIView.commitAnimations()
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        //bannerView.hidden = true
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(1)
+        UIiAd.alpha = 0
+        UIView.commitAnimations()
+    }
 }
 

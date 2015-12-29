@@ -21,6 +21,9 @@
 		DA5DAEF01C30BC280014A4F7 /* PriceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5DAEEF1C30BC280014A4F7 /* PriceList.swift */; };
 		DA73ECCC1C1F0A9E00E1B2A4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA73ECCB1C1F0A9E00E1B2A4 /* CoreData.framework */; };
 		DA78340F1C1C38C900A767E3 /* SessionPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78340E1C1C38C900A767E3 /* SessionPrice.swift */; };
+		DA8E67161C324D1A00A2BCB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67151C324D1A00A2BCB6 /* CoreGraphics.framework */; };
+		DA8E67181C324D2200A2BCB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67171C324D2200A2BCB6 /* UIKit.framework */; };
+		DA8E671A1C324D2A00A2BCB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67191C324D2A00A2BCB6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		DA5DAEEF1C30BC280014A4F7 /* PriceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceList.swift; sourceTree = "<group>"; };
 		DA73ECCB1C1F0A9E00E1B2A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DA78340E1C1C38C900A767E3 /* SessionPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionPrice.swift; sourceTree = "<group>"; };
+		DA8E67151C324D1A00A2BCB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA8E67171C324D2200A2BCB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA8E67191C324D2A00A2BCB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8E671A1C324D2A00A2BCB6 /* Foundation.framework in Frameworks */,
+				DA8E67181C324D2200A2BCB6 /* UIKit.framework in Frameworks */,
+				DA8E67161C324D1A00A2BCB6 /* CoreGraphics.framework in Frameworks */,
 				DA73ECCC1C1F0A9E00E1B2A4 /* CoreData.framework in Frameworks */,
 				DA4475211C15CEA3004ABC04 /* iAd.framework in Frameworks */,
 			);
@@ -93,6 +102,9 @@
 		DA27D53A1C0C9C61001A132D = {
 			isa = PBXGroup;
 			children = (
+				DA8E67191C324D2A00A2BCB6 /* Foundation.framework */,
+				DA8E67171C324D2200A2BCB6 /* UIKit.framework */,
+				DA8E67151C324D1A00A2BCB6 /* CoreGraphics.framework */,
 				DA73ECCB1C1F0A9E00E1B2A4 /* CoreData.framework */,
 				DA4475201C15CEA3004ABC04 /* iAd.framework */,
 				DA27D5451C0C9C62001A132D /* Booze Tracker */,
