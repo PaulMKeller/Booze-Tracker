@@ -8,6 +8,7 @@
 
 import UIKit
 import iAd
+import Social
 
 class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     
@@ -53,6 +54,52 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
     }
     
+    @IBAction func twitterButtonPushed(sender: AnyObject) {
+        
+        
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterSheet.setInitialText("Another good booze session tracked at Harry's Bar on the Booze Tracker App. \(socialNetworkMessage())")
+            self.presentViewController(twitterSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
+    @IBAction func facebookButtonPushed(sender: AnyObject) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            facebookSheet.setInitialText("Another good booze session tracked at Harry's Bar on the Booze Tracker App. \(socialNetworkMessage())")
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func socialNetworkMessage() -> String {
+        var message: String = ""
+        let currentTotal: Int = updateRunningTotal()
+        if (currentTotal <= 50)
+        {
+            message = "Only \(sessionPriceList.currency)\(currentTotal) to pay!"
+        }
+        else if (currentTotal <= 100)
+        {
+            message = "Not bad, \(sessionPriceList.currency)\(currentTotal) to pay!"
+        }
+        else
+        {
+            message = "Whoops, \(sessionPriceList.currency)\(currentTotal) to pay!"
+        }
+        
+        return message
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

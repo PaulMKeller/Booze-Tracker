@@ -15,7 +15,7 @@ class SessionPriceOLD {
     // Singleton iAd -- DONE
     // Update session page with settings page settings -- DONE
     // Save settings -- DONE
-    // Facebook and Twitter integration
+    // Facebook and Twitter integration -- Twitter Done, Facebook not quite
     // Location services
     // Ad free in App Purchase
     // Auto size controls

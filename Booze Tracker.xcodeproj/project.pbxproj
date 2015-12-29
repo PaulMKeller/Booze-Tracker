@@ -25,6 +25,11 @@
 		DA8E67181C324D2200A2BCB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67171C324D2200A2BCB6 /* UIKit.framework */; };
 		DA8E671A1C324D2A00A2BCB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E67191C324D2A00A2BCB6 /* Foundation.framework */; };
 		DA8E671C1C32614600A2BCB6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E671B1C32614600A2BCB6 /* Social.framework */; };
+		DA8E671F1C326A6600A2BCB6 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8E671E1C326A6600A2BCB6 /* facebook.png */; };
+		DA8E67211C326A7000A2BCB6 /* Twitter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA8E67201C326A7000A2BCB6 /* Twitter.jpg */; };
+		DA8E67231C32747600A2BCB6 /* cog_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8E67221C32747600A2BCB6 /* cog_01@2x.png */; };
+		DA8E67251C3274D500A2BCB6 /* house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8E67241C3274D500A2BCB6 /* house@2x.png */; };
+		DA8E67271C32753300A2BCB6 /* pacman@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8E67261C32753300A2BCB6 /* pacman@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,11 @@
 		DA8E67171C324D2200A2BCB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA8E67191C324D2A00A2BCB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA8E671B1C32614600A2BCB6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		DA8E671E1C326A6600A2BCB6 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = Images/facebook.png; sourceTree = "<group>"; };
+		DA8E67201C326A7000A2BCB6 /* Twitter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Twitter.jpg; path = Images/Twitter.jpg; sourceTree = "<group>"; };
+		DA8E67221C32747600A2BCB6 /* cog_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog_01@2x.png"; sourceTree = "<group>"; };
+		DA8E67241C3274D500A2BCB6 /* house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house@2x.png"; sourceTree = "<group>"; };
+		DA8E67261C32753300A2BCB6 /* pacman@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pacman@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,7 @@
 		DA27D53A1C0C9C61001A132D = {
 			isa = PBXGroup;
 			children = (
+				DA8E671D1C32695800A2BCB6 /* Images */,
 				DA8E671B1C32614600A2BCB6 /* Social.framework */,
 				DA8E67191C324D2A00A2BCB6 /* Foundation.framework */,
 				DA8E67171C324D2200A2BCB6 /* UIKit.framework */,
@@ -162,6 +173,18 @@
 				DA27D56A1C0C9C62001A132D /* Info.plist */,
 			);
 			path = "Booze TrackerUITests";
+			sourceTree = "<group>";
+		};
+		DA8E671D1C32695800A2BCB6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DA8E67261C32753300A2BCB6 /* pacman@2x.png */,
+				DA8E67241C3274D500A2BCB6 /* house@2x.png */,
+				DA8E67221C32747600A2BCB6 /* cog_01@2x.png */,
+				DA8E67201C326A7000A2BCB6 /* Twitter.jpg */,
+				DA8E671E1C326A6600A2BCB6 /* facebook.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,8 +292,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8E67251C3274D500A2BCB6 /* house@2x.png in Resources */,
 				DA27D5531C0C9C62001A132D /* LaunchScreen.storyboard in Resources */,
+				DA8E67271C32753300A2BCB6 /* pacman@2x.png in Resources */,
+				DA8E671F1C326A6600A2BCB6 /* facebook.png in Resources */,
 				DA27D5501C0C9C62001A132D /* Assets.xcassets in Resources */,
+				DA8E67231C32747600A2BCB6 /* cog_01@2x.png in Resources */,
+				DA8E67211C326A7000A2BCB6 /* Twitter.jpg in Resources */,
 				DA27D54E1C0C9C62001A132D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
