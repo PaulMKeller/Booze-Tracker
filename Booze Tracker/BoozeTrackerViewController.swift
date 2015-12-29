@@ -218,7 +218,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
-        //UIiAd.hidden = false
+        UIiAd.hidden = false
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
         UIiAd.alpha = 1
@@ -226,11 +226,12 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        //bannerView.hidden = true
+        
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
         UIiAd.alpha = 0
         UIView.commitAnimations()
+        UIiAd.hidden = true
     }
 }
 

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import iAd
 
-class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, ADBannerViewDelegate {
     
     var pickerData: [String] = [String]()
     var defaults = NSUserDefaults.standardUserDefaults()
     var sessionPriceList: PriceList = PriceList(useZero: true)
+    var UIiAd: ADBannerView = ADBannerView()
     
     @IBOutlet var beer: UITextField!
     @IBOutlet var redWine: UITextField!
@@ -218,6 +220,38 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         barSnacks.resignFirstResponder()
         liteBites.resignFirstResponder()
         bigFood.resignFirstResponder()
+    }
+    
+    func appDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIiAd.delegate = self
+        UIiAd = self.appDelegate().UIiAd
+        UIiAd.frame = CGRectMake(0, 21, 0, 0)
+        view.addSubview(UIiAd)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        UIiAd.delegate = nil
+        UIiAd.removeFromSuperview()
+    }
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        UIiAd.hidden = false
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(1)
+        UIiAd.alpha = 1
+        UIView.commitAnimations()
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(1)
+        UIiAd.alpha = 0
+        UIView.commitAnimations()
+        UIiAd.hidden = true
     }
     
     /*
