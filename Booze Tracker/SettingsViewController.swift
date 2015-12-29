@@ -11,7 +11,6 @@ import UIKit
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var pickerData: [String] = [String]()
-    @IBOutlet var pickerView: UIPickerView!
     var sessionPriceList: PriceList = PriceList(useZero: false)
     
     @IBOutlet var beer: UITextField!
@@ -26,7 +25,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet var barSnacks: UITextField!
     @IBOutlet var liteBites: UITextField!
     @IBOutlet var bigFood: UITextField!
-    @IBOutlet var currencySymbol: UITextField!
     @IBOutlet var currency: UITextField!
     
     
@@ -34,11 +32,30 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //CreateCurrencyArray()
-        pickerData = ["$", "£", "€", "¥", "inr", "Other"]
-        SetupPickerData()
+        pickerData = ["$", "£", "€", "¥", "inr", "руб", "₩"]
+        
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        
+        currency.inputView = pickerView
+        currency.inputAccessoryView = toolBar
         
         FormLoad()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,10 +78,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return  pickerData[row]
     }
     
-    
-    func SetupPickerData(){
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currency.text = pickerData[row]
     }
     
     func FormLoad(){
@@ -81,8 +96,78 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         liteBites.text = String(sessionPriceList.liteBites)
         bigFood.text = String(sessionPriceList.mainMeal)
         currency.text = sessionPriceList.currency
+        
+        setNumericKeyPad()
     }
     
+    func setNumericKeyPad(){
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneNumericPad")
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        /*
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelPicker")
+        */
+        
+        toolBar.setItems([spaceButton, doneButton], animated: true)
+        toolBar.userInteractionEnabled = true
+
+        
+        beer.keyboardType = UIKeyboardType.NumberPad
+        redWine.keyboardType = UIKeyboardType.NumberPad
+        whiteWine.keyboardType = UIKeyboardType.NumberPad
+        spirit.keyboardType = UIKeyboardType.NumberPad
+        shots.keyboardType = UIKeyboardType.NumberPad
+        cocktail.keyboardType = UIKeyboardType.NumberPad
+        bubbles.keyboardType = UIKeyboardType.NumberPad
+        softDrink.keyboardType = UIKeyboardType.NumberPad
+        coffeeTea.keyboardType = UIKeyboardType.NumberPad
+        barSnacks.keyboardType = UIKeyboardType.NumberPad
+        liteBites.keyboardType = UIKeyboardType.NumberPad
+        bigFood.keyboardType = UIKeyboardType.NumberPad
+        
+        beer.inputAccessoryView = toolBar
+        redWine.inputAccessoryView = toolBar
+        whiteWine.inputAccessoryView = toolBar
+        spirit.inputAccessoryView = toolBar
+        shots.inputAccessoryView = toolBar
+        cocktail.inputAccessoryView = toolBar
+        bubbles.inputAccessoryView = toolBar
+        softDrink.inputAccessoryView = toolBar
+        coffeeTea.inputAccessoryView = toolBar
+        barSnacks.inputAccessoryView = toolBar
+        liteBites.inputAccessoryView = toolBar
+        bigFood.inputAccessoryView = toolBar
+        
+    }
+    
+    func donePicker(){
+        currency.resignFirstResponder()
+    }
+    
+    func doneNumericPad(){
+        beer.resignFirstResponder()
+        redWine.resignFirstResponder()
+        whiteWine.resignFirstResponder()
+        spirit.resignFirstResponder()
+        shots.resignFirstResponder()
+        cocktail.resignFirstResponder()
+        bubbles.resignFirstResponder()
+        softDrink.resignFirstResponder()
+        coffeeTea.resignFirstResponder()
+        barSnacks.resignFirstResponder()
+        liteBites.resignFirstResponder()
+        bigFood.resignFirstResponder()
+    }
+    
+    /*
     func CreateCurrencyArray(){
         pickerData = [
             "Albania Lek (ALL): Lek",
@@ -198,5 +283,5 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             "Zimbabwe Dollar (ZWD): Z$"
         ]
     }
-    
+    */
 }

@@ -23,10 +23,12 @@ class BoozeTrackerViewController: UIViewController {
     @IBOutlet var liteBitesLabel: UILabel!
     @IBOutlet var bigFoodLabel: UILabel!
     @IBOutlet var runningTotalLabel: UILabel!
+    @IBAction func newSession(sender: AnyObject) {
+        ClearAllTotals()
+    }
     
 
     @IBAction func stepperValueChanged(sender: UIStepper) {
-        //lblBeerCount.text = Int(sender.value).description
         let labelName = getLabelNameFromTag(sender.tag)
         labelName.text = Int(sender.value).description
         
@@ -59,8 +61,8 @@ class BoozeTrackerViewController: UIViewController {
         
         for var i = 0; i <= 11; ++i {
             let lblLabel:UILabel = getLabelNameFromTag(i)
-            let cunt:String? = lblLabel.text
-            let a:Int? = Int(cunt ?? "")
+            let count:String? = lblLabel.text
+            let a:Int? = Int(count ?? "")
             runningTotal += a! * getPriceFromTag(i)
         }
         
@@ -130,6 +132,22 @@ class BoozeTrackerViewController: UIViewController {
         default:
             return 0
         }
+    }
+    
+    func ClearAllTotals(){
+        beerLabel.text = String("0")
+        redWineLabel.text = String("0")
+        whiteWineLabel.text = String("0")
+        spiritLabel.text = String("0")
+        shotsLabel.text = String("0")
+        cocktailLabel.text = String("0")
+        bubblesLabel.text = String("0")
+        softLabel.text = String("0")
+        coffeeLabel.text = String("0")
+        barSnacksLabel.text = String("0")
+        liteBitesLabel.text = String("0")
+        bigFoodLabel.text = String("0")
+        runningTotalLabel.text = "$ \(updateRunningTotal())"
     }
 
 }

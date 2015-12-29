@@ -13,5 +13,11 @@ class SessionPriceOLD {
     // Show and hide the picker
     // Center the currency text box -- DONE
     // Singleton iAd
-    
+    // Auto size controls
+    // Update session page with settings page settings
+    // Facebook and Twitter integration
+    // Location services
+    // Ad free in App Purchase
+    // Tab Bar Icons
+    // Make it look pretty
 }
