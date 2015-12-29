@@ -11,7 +11,8 @@ import UIKit
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var pickerData: [String] = [String]()
-    var sessionPriceList: PriceList = PriceList(useZero: false)
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var sessionPriceList: PriceList = PriceList(useZero: true)
     
     @IBOutlet var beer: UITextField!
     @IBOutlet var redWine: UITextField!
@@ -27,6 +28,9 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet var bigFood: UITextField!
     @IBOutlet var currency: UITextField!
     
+    @IBAction func saveSettings(sender: AnyObject) {
+        saveUserDefaults()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         currency.inputView = pickerView
         currency.inputAccessoryView = toolBar
         
+        loadUserDefaults()
         FormLoad()
         
     }
@@ -100,6 +105,58 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         setNumericKeyPad()
     }
     
+    func loadUserDefaults(){
+        sessionPriceList.beer = defaults.integerForKey("beer")
+        sessionPriceList.redWine = defaults.integerForKey("redWine")
+        sessionPriceList.whiteWine = defaults.integerForKey("whiteWine")
+        sessionPriceList.spirit = defaults.integerForKey("spirit")
+        sessionPriceList.shots = defaults.integerForKey("shots")
+        sessionPriceList.cocktail = defaults.integerForKey("cocktail")
+        sessionPriceList.bubbles = defaults.integerForKey("bubbles")
+        sessionPriceList.softDrink = defaults.integerForKey("softDrink")
+        sessionPriceList.coffeeTea = defaults.integerForKey("coffeeTea")
+        sessionPriceList.barSnacks = defaults.integerForKey("barSnacks")
+        sessionPriceList.liteBites = defaults.integerForKey("liteBites")
+        sessionPriceList.mainMeal = defaults.integerForKey("mainMeal")
+        
+        
+        if (defaults.stringForKey("currency") != nil)
+        {
+            sessionPriceList.currency = defaults.stringForKey("currency")!
+        }
+    }
+    
+    func saveUserDefaults(){
+        
+        sessionPriceList.beer = Int(beer.text!)!
+        sessionPriceList.redWine = Int(redWine.text!)!
+        sessionPriceList.whiteWine = Int(whiteWine.text!)!
+        sessionPriceList.spirit = Int(spirit.text!)!
+        sessionPriceList.shots = Int(shots.text!)!
+        sessionPriceList.cocktail = Int(cocktail.text!)!
+        sessionPriceList.bubbles = Int(bubbles.text!)!
+        sessionPriceList.softDrink = Int(softDrink.text!)!
+        sessionPriceList.coffeeTea = Int(coffeeTea.text!)!
+        sessionPriceList.barSnacks = Int(barSnacks.text!)!
+        sessionPriceList.liteBites = Int(liteBites.text!)!
+        sessionPriceList.mainMeal = Int(bigFood.text!)!
+        sessionPriceList.currency = currency.text!
+        
+        defaults.setInteger(sessionPriceList.beer, forKey: "beer")
+        defaults.setInteger(sessionPriceList.redWine, forKey: "redWine")
+        defaults.setInteger(sessionPriceList.whiteWine, forKey: "whiteWine")
+        defaults.setInteger(sessionPriceList.spirit, forKey: "spirit")
+        defaults.setInteger(sessionPriceList.shots, forKey: "shots")
+        defaults.setInteger(sessionPriceList.cocktail, forKey: "cocktail")
+        defaults.setInteger(sessionPriceList.bubbles, forKey: "bubbles")
+        defaults.setInteger(sessionPriceList.softDrink, forKey: "softDrink")
+        defaults.setInteger(sessionPriceList.coffeeTea, forKey: "coffeeTea")
+        defaults.setInteger(sessionPriceList.barSnacks, forKey: "barSnacks")
+        defaults.setInteger(sessionPriceList.liteBites, forKey: "liteBites")
+        defaults.setInteger(sessionPriceList.mainMeal, forKey: "mainMeal")
+        defaults.setValue(sessionPriceList.currency, forKey: "currency")
+    }
+    
     func setNumericKeyPad(){
         
         let toolBar = UIToolbar()
@@ -111,10 +168,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneNumericPad")
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        /*
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelPicker")
-        */
         
         toolBar.setItems([spaceButton, doneButton], animated: true)
         toolBar.userInteractionEnabled = true

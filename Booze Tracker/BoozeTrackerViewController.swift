@@ -23,6 +23,18 @@ class BoozeTrackerViewController: UIViewController {
     @IBOutlet var liteBitesLabel: UILabel!
     @IBOutlet var bigFoodLabel: UILabel!
     @IBOutlet var runningTotalLabel: UILabel!
+    @IBOutlet var beerStepper: UIStepper!
+    @IBOutlet var redWineStepper: UIStepper!
+    @IBOutlet var whiteWineStepper: UIStepper!
+    @IBOutlet var spiritStepper: UIStepper!
+    @IBOutlet var shotsStepper: UIStepper!
+    @IBOutlet var cocktailStepper: UIStepper!
+    @IBOutlet var bubblesStepper: UIStepper!
+    @IBOutlet var softDrinkStepper: UIStepper!
+    @IBOutlet var coffeeTeaStepper: UIStepper!
+    @IBOutlet var barSnacksStepper: UIStepper!
+    @IBOutlet var liteBitesStepper: UIStepper!
+    @IBOutlet var mainMealStepper: UIStepper!
     @IBAction func newSession(sender: AnyObject) {
         ClearAllTotals()
     }
@@ -39,12 +51,6 @@ class BoozeTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        /*
-        beerStepper.wraps = false
-        beerStepper.autorepeat = false
-        beerStepper.maximumValue = 100
-        */
         
         runningTotalLabel.text = "$ \(updateRunningTotal())"
         
@@ -135,6 +141,20 @@ class BoozeTrackerViewController: UIViewController {
     }
     
     func ClearAllTotals(){
+        
+        beerStepper.value = 0
+        redWineStepper.value = 0
+        whiteWineStepper.value = 0
+        spiritStepper.value = 0
+        shotsStepper.value = 0
+        cocktailStepper.value = 0
+        bubblesStepper.value = 0
+        softDrinkStepper.value = 0
+        coffeeTeaStepper.value = 0
+        barSnacksStepper.value = 0
+        liteBitesStepper.value = 0
+        mainMealStepper.value = 0
+        
         beerLabel.text = String("0")
         redWineLabel.text = String("0")
         whiteWineLabel.text = String("0")
