@@ -19,7 +19,8 @@ class SessionPriceOLD {
     // Location services
     // Ad free in App Purchase
     // Auto size controls
-    // Tab Bar Icons
+    // Tab Bar Icons -- Mostly Done
+    // App Icon
     // Make it look pretty
     // Watch App?
 }
