@@ -16,7 +16,8 @@ class SessionPriceOLD {
     // Update session page with settings page settings -- DONE
     // Save settings -- DONE
     // Facebook and Twitter integration -- Twitter Done, Facebook not quite
-    // Location services
+    // Launch File -- DONE
+    // Location services -- 
     // Ad free in App Purchase
     // Auto size controls
     // Tab Bar Icons -- Mostly Done

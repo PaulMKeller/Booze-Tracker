@@ -49,6 +49,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.png" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="lastSession" destination="A5M-7J-77L" id="BGT-5U-4R9"/>
+                        <outlet property="sessionAmount" destination="RH1-xG-gZZ" id="NVz-WB-n2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,8 +298,8 @@
                                     <action selector="stepperValueChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="cmn-f1-Axq"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location: Harry's, Tampines Grande" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA4-Rm-Hy3">
-                                <rect key="frame" x="26" y="88" width="321" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA4-Rm-Hy3">
+                                <rect key="frame" x="26" y="88" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -321,6 +325,11 @@
                                     <action selector="newSession:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="l7a-Wb-V6H"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your session location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5B-yf-mUJ">
+                                <rect key="frame" x="109" y="84" width="238" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -343,6 +352,7 @@
                         <outlet property="redWineLabel" destination="AgO-qR-jcO" id="ygk-GT-WQb"/>
                         <outlet property="redWineStepper" destination="NKP-iK-p8G" id="0UP-J0-eRK"/>
                         <outlet property="runningTotalLabel" destination="zP0-bZ-vuI" id="2c2-FC-WM7"/>
+                        <outlet property="sessionLocation" destination="A5B-yf-mUJ" id="T8i-rC-EMM"/>
                         <outlet property="shotsLabel" destination="zei-2o-WwL" id="H42-b1-Uqc"/>
                         <outlet property="shotsStepper" destination="HIK-33-P32" id="U81-fb-0Ux"/>
                         <outlet property="softDrinkStepper" destination="VrO-PB-XFA" id="PI2-zF-6uN"/>

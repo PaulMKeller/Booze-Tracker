@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA000F001C36524E00FD3667 /* LaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA000EFF1C36524E00FD3667 /* LaunchImage.jpg */; };
+		DA000F021C3682D900FD3667 /* LastSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA000F011C3682D900FD3667 /* LastSession.swift */; };
 		DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5461C0C9C62001A132D /* AppDelegate.swift */; };
 		DA27D5491C0C9C62001A132D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D5481C0C9C62001A132D /* HomeViewController.swift */; };
 		DA27D54B1C0C9C62001A132D /* BoozeTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27D54A1C0C9C62001A132D /* BoozeTrackerViewController.swift */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA000EFF1C36524E00FD3667 /* LaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LaunchImage.jpg; path = Images/LaunchImage.jpg; sourceTree = "<group>"; };
+		DA000F011C3682D900FD3667 /* LastSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSession.swift; sourceTree = "<group>"; };
 		DA27D5431C0C9C62001A132D /* Booze Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booze Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA27D5461C0C9C62001A132D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA27D5481C0C9C62001A132D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				DA27D57A1C0CA43D001A132D /* SettingsViewController.swift */,
 				DA78340E1C1C38C900A767E3 /* SessionPrice.swift */,
 				DA5DAEEF1C30BC280014A4F7 /* PriceList.swift */,
+				DA000F011C3682D900FD3667 /* LastSession.swift */,
 			);
 			path = "Booze Tracker";
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		DA8E671D1C32695800A2BCB6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DA000EFF1C36524E00FD3667 /* LaunchImage.jpg */,
 				DA8E67661C342C7700A2BCB6 /* Icon87x87.png */,
 				DA8E67641C342C0800A2BCB6 /* Icon58x58.png */,
 				DA8E675E1C3429F100A2BCB6 /* Icon29x29.png */,
@@ -345,6 +351,7 @@
 				DA8E67231C32747600A2BCB6 /* cog_01@2x.png in Resources */,
 				DA8E67451C3425F800A2BCB6 /* Icon120x120.png in Resources */,
 				DA8E67291C3420E200A2BCB6 /* Icon180x180.png in Resources */,
+				DA000F001C36524E00FD3667 /* LaunchImage.jpg in Resources */,
 				DA8E673C1C3425F800A2BCB6 /* Icon60x60.png in Resources */,
 				DA8E67211C326A7000A2BCB6 /* Twitter.jpg in Resources */,
 				DA27D54E1C0C9C62001A132D /* Main.storyboard in Resources */,
@@ -376,6 +383,7 @@
 				DA78340F1C1C38C900A767E3 /* SessionPrice.swift in Sources */,
 				DA27D54B1C0C9C62001A132D /* BoozeTrackerViewController.swift in Sources */,
 				DA27D5471C0C9C62001A132D /* AppDelegate.swift in Sources */,
+				DA000F021C3682D900FD3667 /* LastSession.swift in Sources */,
 				DA27D5491C0C9C62001A132D /* HomeViewController.swift in Sources */,
 				DA27D57B1C0CA43D001A132D /* SettingsViewController.swift in Sources */,
 				DA27D5791C0C9F43001A132D /* HistoryViewController.swift in Sources */,
@@ -518,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Booze Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -531,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Booze Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;

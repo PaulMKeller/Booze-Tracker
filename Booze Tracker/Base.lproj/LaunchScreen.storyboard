@@ -17,11 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LDm-gQ-85N">
-                                <rect key="frame" x="180" y="198" width="240" height="204"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LDm-gQ-85N">
+                                <rect key="frame" x="-660" y="-300" width="1920" height="1200"/>
                             </imageView>
                         </subviews>
                         <color key="tintColor" red="0.0" green="0.30470610570000001" blue="0.98913043479999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LDm-gQ-85N" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="E3a-BV-Gpg"/>
+                            <constraint firstItem="LDm-gQ-85N" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rhS-Ic-0da"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

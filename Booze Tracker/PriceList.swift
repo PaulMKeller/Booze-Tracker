@@ -9,7 +9,7 @@
 import Foundation
 
 class PriceList {
-
+    var defaults = NSUserDefaults.standardUserDefaults()
     var beer: Int
     var redWine: Int
     var whiteWine: Int
@@ -44,19 +44,19 @@ class PriceList {
         }
         else
         {
-            self.beer = 15
-            self.redWine = 15
-            self.whiteWine = 15
-            self.spirit = 22
-            self.shots = 10
-            self.cocktail = 25
-            self.bubbles = 25
-            self.softDrink = 5
-            self.coffeeTea = 7
-            self.barSnacks = 5
-            self.liteBites = 10
-            self.mainMeal = 15
-            self.currency = "$"
+            self.beer = defaults.integerForKey("beer")
+            self.redWine = defaults.integerForKey("redWine")
+            self.whiteWine = defaults.integerForKey("whiteWine")
+            self.spirit = defaults.integerForKey("spirit")
+            self.shots = defaults.integerForKey("shots")
+            self.cocktail = defaults.integerForKey("cocktail")
+            self.bubbles = defaults.integerForKey("bubbles")
+            self.softDrink = defaults.integerForKey("softDrink")
+            self.coffeeTea = defaults.integerForKey("coffeeTea")
+            self.barSnacks = defaults.integerForKey("barSnacks")
+            self.liteBites = defaults.integerForKey("liteBites")
+            self.mainMeal = defaults.integerForKey("mainMeal")
+            self.currency = defaults.stringForKey("currency")!
         }
     }
 }

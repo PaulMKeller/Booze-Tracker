@@ -13,6 +13,10 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
 
     //var bannerView: ADBannerView!
     var UIiAd: ADBannerView = ADBannerView()
+    var defaults = NSUserDefaults.standardUserDefaults()
+    
+    @IBOutlet var lastSession: UILabel!
+    @IBOutlet var sessionAmount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,19 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
         */
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if (defaults.stringForKey("SessionLocation") != nil && defaults.stringForKey("SessionLocation") != "")
+        {
+            lastSession.text = defaults.stringForKey("SessionLocation")
+            sessionAmount.text = defaults.stringForKey("SessionAmount")
+        }
+        else
+        {
+            lastSession.text = "No Saved Session Yet, Get Boozing!"
+            sessionAmount.text = ""
+        }
     }
 
     override func didReceiveMemoryWarning() {

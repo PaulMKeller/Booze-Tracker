@@ -41,9 +41,14 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     @IBOutlet var barSnacksStepper: UIStepper!
     @IBOutlet var liteBitesStepper: UIStepper!
     @IBOutlet var mainMealStepper: UIStepper!
+    @IBOutlet var sessionLocation: UITextField!
     @IBAction func newSession(sender: AnyObject) {
         ClearAllTotals()
         refreshSessionPriceList()
+        
+        sessionLocation.text = ""
+        defaults.setObject("", forKey: "SessionLocation")
+        defaults.setObject("", forKey: "SessionAmount")
     }
     
 
@@ -59,7 +64,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Another good booze session tracked at Harry's Bar on the Booze Tracker App. \(socialNetworkMessage())")
+            twitterSheet.setInitialText("Another good booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -73,7 +78,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     @IBAction func facebookButtonPushed(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Another good booze session tracked at Harry's Bar on the Booze Tracker App. \(socialNetworkMessage())")
+            facebookSheet.setInitialText("Another good booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -105,9 +110,10 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        setupLocationEntry()
         refreshSessionPriceList()
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
-        
+        sessionLocation.text = defaults.stringForKey("SessionLocation")!
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,6 +131,8 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
             let a:Int? = Int(count ?? "")
             runningTotal += a! * getPriceFromTag(i)
         }
+        
+        defaults.setObject(sessionPriceList.currency + String(runningTotal), forKey: "SessionAmount")
         
         return runningTotal
     }
@@ -279,6 +287,29 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         UIiAd.alpha = 0
         UIView.commitAnimations()
         //UIiAd.hidden = true
+    }
+    
+    func setupLocationEntry(){
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneLocation")
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        
+        sessionLocation.keyboardType = UIKeyboardType.Default
+        sessionLocation.inputAccessoryView = toolBar
+    }
+    
+    func doneLocation(){
+        defaults.setObject(sessionLocation.text, forKey: "SessionLocation")
+        sessionLocation.resignFirstResponder()
     }
 }
 
