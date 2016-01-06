@@ -64,7 +64,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Another good booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
+            twitterSheet.setInitialText("Another booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -78,7 +78,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     @IBAction func facebookButtonPushed(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Another good booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
+            facebookSheet.setInitialText("Another booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -113,7 +113,14 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         setupLocationEntry()
         refreshSessionPriceList()
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
-        sessionLocation.text = defaults.stringForKey("SessionLocation")!
+        if (defaults.stringForKey("SessionLocation") == nil || defaults.stringForKey("SessionLocation") == "")
+        {
+            sessionLocation.text = ""
+        }
+        else
+        {
+            sessionLocation.text = defaults.stringForKey("SessionLocation")!
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -258,18 +265,25 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        UIiAd.delegate = self
-        UIiAd = self.appDelegate().UIiAd
-        UIiAd.frame = CGRectMake(0, 21, 0, 0)
-        view.addSubview(UIiAd)
+        if (defaults.boolForKey("isAdFree") == false) {
+            UIiAd.delegate = self
+            UIiAd = self.appDelegate().UIiAd
+            UIiAd.frame = CGRectMake(0, 21, 0, 0)
+            view.addSubview(UIiAd)
+        }
         
         refreshSessionPriceList()
+        loadSessionValues()
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
     }
     
     override func viewWillDisappear(animated: Bool) {
-        UIiAd.delegate = nil
-        UIiAd.removeFromSuperview()
+        if (defaults.boolForKey("isAdFree") == false) {
+            UIiAd.delegate = nil
+            UIiAd.removeFromSuperview()
+        }
+        
+        saveSessionValues()
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
@@ -310,6 +324,16 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     func doneLocation(){
         defaults.setObject(sessionLocation.text, forKey: "SessionLocation")
         sessionLocation.resignFirstResponder()
+    }
+    
+    func loadSessionValues()
+    {
+        print("TODO: BoozeTracker Session - loadSessionValues")
+    }
+    
+    func saveSessionValues()
+    {
+        print("TODO: BoozeTracker Session - saveSessionValues")
     }
 }
 

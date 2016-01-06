@@ -8,13 +8,19 @@
 
 import UIKit
 import iAd
+import StoreKit
 
-class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, ADBannerViewDelegate {
+class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, ADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     var pickerData: [String] = [String]()
     var defaults = NSUserDefaults.standardUserDefaults()
     var sessionPriceList: PriceList = PriceList(useZero: true)
     var UIiAd: ADBannerView = ADBannerView()
+    
+    //InApp Purchase
+    var productIDs: Array<String!> = []
+    var productsArray: Array<SKProduct!> = []
+    var transactionInProgress = false
     
     @IBOutlet var beer: UITextField!
     @IBOutlet var redWine: UITextField!
@@ -30,6 +36,51 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet var bigFood: UITextField!
     @IBOutlet var currency: UITextField!
     
+    @IBAction func AdFreePurchase(sender: AnyObject) {
+        requestProductInfo()
+        
+        if transactionInProgress {
+            return
+        }
+        
+        let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Buy the Ad free version?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let buyAction = UIAlertAction(title: "Buy", style: UIAlertActionStyle.Default) { (action) -> Void in
+            let payment = SKPayment(product: self.productsArray[0] as SKProduct)
+            SKPaymentQueue.defaultQueue().addPayment(payment)
+            self.transactionInProgress = true
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+            
+        }
+        
+        actionSheetController.addAction(buyAction)
+        actionSheetController.addAction(cancelAction)
+        
+        presentViewController(actionSheetController, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func RestorePurchases(sender: AnyObject) {
+        
+        let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Restore Bar Bill Tracker Purchases?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let restoreAction = UIAlertAction(title: "Restore", style: UIAlertActionStyle.Default) { (action) -> Void in
+            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+            
+        }
+        
+        actionSheetController.addAction(restoreAction)
+        actionSheetController.addAction(cancelAction)
+        
+        presentViewController(actionSheetController, animated: true, completion: nil)
+    }
+    
     @IBAction func saveSettings(sender: AnyObject) {
         saveUserDefaults()
     }
@@ -39,6 +90,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Do any additional setup after loading the view, typically from a nib.
         
         pickerData = ["$", "£", "€", "¥", "inr", "руб", "₩"]
+        productIDs.append("bar_bill_ad_free")
         
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -59,6 +111,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         currency.inputView = pickerView
         currency.inputAccessoryView = toolBar
+        
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         
         loadUserDefaults()
         FormLoad()
@@ -227,15 +281,21 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     override func viewDidAppear(animated: Bool) {
-        UIiAd.delegate = self
-        UIiAd = self.appDelegate().UIiAd
-        UIiAd.frame = CGRectMake(0, 21, 0, 0)
-        view.addSubview(UIiAd)
+        if (defaults.boolForKey("isAdFree") == false) {
+            UIiAd.delegate = self
+            UIiAd = self.appDelegate().UIiAd
+            UIiAd.frame = CGRectMake(0, 21, 0, 0)
+            view.addSubview(UIiAd)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
-        UIiAd.delegate = nil
-        UIiAd.removeFromSuperview()
+        if (defaults.boolForKey("isAdFree") == false) {
+            UIiAd.delegate = nil
+            UIiAd.removeFromSuperview()
+        }
+        
+        saveUserDefaults()
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
@@ -252,6 +312,56 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         UIiAd.alpha = 0
         UIView.commitAnimations()
         //UIiAd.hidden = true
+    }
+    
+    func requestProductInfo() {
+        if SKPaymentQueue.canMakePayments() {
+            let productIdentifiers = NSSet(array: productIDs)
+            let productRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
+            
+            productRequest.delegate = self
+            productRequest.start()
+        }
+        else {
+            print("Cannot perform In App Purchases.")
+        }
+    }
+    
+    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+        if response.products.count != 0 {
+            for product in response.products {
+                productsArray.append(product as SKProduct)
+            }
+        }
+        else {
+            print("There are no products.")
+        }
+        
+        if response.invalidProductIdentifiers.count != 0 {
+            print(response.invalidProductIdentifiers.description)
+        }
+    }
+    
+    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions as [SKPaymentTransaction] {
+            switch transaction.transactionState {
+            case SKPaymentTransactionState.Purchased:
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                transactionInProgress = false
+                defaults.setBool(true, forKey: "isAdFree")
+                self.appDelegate().isAdFree = true
+                UIiAd.delegate = nil
+                UIiAd.removeFromSuperview()
+            case SKPaymentTransactionState.Failed:
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                transactionInProgress = false
+                defaults.setBool(false, forKey: "isAdFree")
+                self.appDelegate().isAdFree = false
+                
+            default:
+                print("paymentQueue: Error in In-App Purchase")
+            }
+        }
     }
     
     /*

@@ -49,6 +49,7 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
             lastSession.text = "No Saved Session Yet, Get Boozing!"
             sessionAmount.text = ""
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,15 +62,19 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        UIiAd.delegate = self
-        UIiAd = self.appDelegate().UIiAd
-        UIiAd.frame = CGRectMake(0, 21, 0, 0)
-        view.addSubview(UIiAd)
+        if (defaults.boolForKey("isAdFree") == false) {
+            UIiAd.delegate = self
+            UIiAd = self.appDelegate().UIiAd
+            UIiAd.frame = CGRectMake(0, 21, 0, 0)
+            view.addSubview(UIiAd)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
-        UIiAd.delegate = nil
-        UIiAd.removeFromSuperview()
+        if (defaults.boolForKey("isAdFree") == false) {
+            UIiAd.delegate = nil
+            UIiAd.removeFromSuperview()
+        }
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {

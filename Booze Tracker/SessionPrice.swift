@@ -17,11 +17,11 @@ class SessionPriceOLD {
     // Save settings -- DONE
     // Facebook and Twitter integration -- Twitter Done, Facebook not quite
     // Launch File -- DONE
-    // Location services -- 
+    // Location services -- NEXT VERSION
     // Ad free in App Purchase
     // Auto size controls
     // Tab Bar Icons -- Mostly Done
-    // App Icon
+    // App Icon -- DONE
     // Make it look pretty
     // Watch App?
 }

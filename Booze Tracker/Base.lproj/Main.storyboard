@@ -380,8 +380,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ody-5j-bRx">
-                                <rect key="frame" x="37" y="82" width="288" height="30"/>
-                                <state key="normal" title="Get Ad Free Version (In-App Purchase)"/>
+                                <rect key="frame" x="20" y="78" width="150" height="30"/>
+                                <state key="normal" title="Buy Ad Free Version /"/>
+                                <connections>
+                                    <action selector="AdFreePurchase:" destination="cua-uZ-rJr" eventType="touchUpInside" id="GT6-hJ-CsM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" text="Red Wine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDU-4C-CaY">
                                 <rect key="frame" x="37" y="221" width="108" height="21"/>
@@ -537,6 +540,13 @@
                                 <state key="normal" title="Save Settings"/>
                                 <connections>
                                     <action selector="saveSettings:" destination="cua-uZ-rJr" eventType="touchUpInside" id="HSx-RU-CwV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-3e-6XG">
+                                <rect key="frame" x="173" y="78" width="144" height="30"/>
+                                <state key="normal" title="Restore Purchases"/>
+                                <connections>
+                                    <action selector="RestorePurchases:" destination="cua-uZ-rJr" eventType="touchUpInside" id="sSZ-UQ-PsD"/>
                                 </connections>
                             </button>
                         </subviews>

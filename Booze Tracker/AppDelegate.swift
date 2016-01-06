@@ -9,11 +9,18 @@
 import UIKit
 import iAd
 
+//protocol IAPurchaceViewControllerDelegate {
+    
+//    func didBuyColorsCollection(collectionIndex: Int)
+    
+//}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var UIiAd: ADBannerView = ADBannerView()
+    var isAdFree: Bool = NSUserDefaults.standardUserDefaults().boolForKey("isAdFree")
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
