@@ -18,7 +18,7 @@ class SessionPriceOLD {
     // Facebook and Twitter integration -- Twitter Done, Facebook not quite
     // Launch File -- DONE
     // Location services -- NEXT VERSION
-    // Ad free in App Purchase
+    // Ad free in App Purchase -- DONE
     // Auto size controls
     // Tab Bar Icons -- Mostly Done
     // App Icon -- DONE
