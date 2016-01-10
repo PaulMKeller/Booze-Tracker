@@ -63,6 +63,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     
+    
     @IBAction func RestorePurchases(sender: AnyObject) {
         
         let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Restore Bar Bill Tracker Purchases?", preferredStyle: UIAlertControllerStyle.ActionSheet)
