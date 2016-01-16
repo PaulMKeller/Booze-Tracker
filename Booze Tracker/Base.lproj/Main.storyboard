@@ -549,7 +549,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlY-pA-u1p">
-                                <rect key="frame" x="322" y="28" width="129" height="30"/>
+                                <rect key="frame" x="438" y="125" width="129" height="30"/>
                                 <state key="normal" title="Restore Purchases"/>
                                 <connections>
                                     <action selector="AdFreePurchase:" destination="cua-uZ-rJr" eventType="touchUpInside" id="w33-io-3gC"/>
