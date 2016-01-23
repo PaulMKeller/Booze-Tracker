@@ -19,9 +19,16 @@ class SessionPriceOLD {
     // Launch File -- DONE
     // Location services -- NEXT VERSION
     // Ad free in App Purchase -- DONE
-    // Auto size controls
+    // Auto size controls -- DONE
     // Tab Bar Icons -- Mostly Done
     // App Icon -- DONE
     // Make it look pretty
-    // Watch App?
+    // Watch App? -- NEXT SPRINT
+    
+    
+    // BUGS
+    // Ad's hide top of view. Will need to bump down -- DONE
+    // Need to work out how to scroll for smaller screen
+    // Add a scroll view to enable screen acrolling for lower res screens
+    // Session values are reset?
 }
