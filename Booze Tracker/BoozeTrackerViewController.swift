@@ -12,7 +12,7 @@ import Social
 
 class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     var sessionPriceList: PriceList = PriceList(useZero: true)
     var UIiAd: ADBannerView = ADBannerView()
         
@@ -42,48 +42,48 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     @IBOutlet var liteBitesStepper: UIStepper!
     @IBOutlet var mainMealStepper: UIStepper!
     @IBOutlet var sessionLocation: UITextField!
-    @IBAction func newSession(sender: AnyObject) {
+    @IBAction func newSession(_ sender: AnyObject) {
         ClearAllTotals()
         refreshSessionPriceList()
         
         sessionLocation.text = ""
-        defaults.setObject("", forKey: "SessionLocation")
-        defaults.setObject("", forKey: "SessionAmount")
+        defaults.set("", forKey: "SessionLocation")
+        defaults.set("", forKey: "SessionAmount")
     }
     
 
-    @IBAction func stepperValueChanged(sender: UIStepper) {
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
         let labelName = getLabelNameFromTag(sender.tag)
         labelName.text = Int(sender.value).description
         
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
     }
     
-    @IBAction func twitterButtonPushed(sender: AnyObject) {
+    @IBAction func twitterButtonPushed(_ sender: AnyObject) {
         
         
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Another booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
-            self.presentViewController(twitterSheet, animated: true, completion: nil)
+            twitterSheet.setInitialText("Another booze session tracked at \(defaults.string(forKey: "SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
+            self.present(twitterSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
     }
     
     
-    @IBAction func facebookButtonPushed(sender: AnyObject) {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+    @IBAction func facebookButtonPushed(_ sender: AnyObject) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Another booze session tracked at \(defaults.stringForKey("SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
-            self.presentViewController(facebookSheet, animated: true, completion: nil)
+            facebookSheet.setInitialText("Another booze session tracked at \(defaults.string(forKey: "SessionLocation")!) on the Booze Tracker App. \(socialNetworkMessage())")
+            self.present(facebookSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -113,13 +113,13 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         setupLocationEntry()
         refreshSessionPriceList()
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
-        if (defaults.stringForKey("SessionLocation") == nil || defaults.stringForKey("SessionLocation") == "")
+        if (defaults.string(forKey: "SessionLocation") == nil || defaults.string(forKey: "SessionLocation") == "")
         {
             sessionLocation.text = ""
         }
         else
         {
-            sessionLocation.text = defaults.stringForKey("SessionLocation")!
+            sessionLocation.text = defaults.string(forKey: "SessionLocation")!
         }
     }
 
@@ -132,19 +132,19 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         
         var runningTotal:Int = 0
         
-        for var i = 0; i <= 11; ++i {
+        for var i = 0; i <= 11; i += 1 {
             let lblLabel:UILabel = getLabelNameFromTag(i)
             let count:String? = lblLabel.text
             let a:Int? = Int(count ?? "")
             runningTotal += a! * getPriceFromTag(i)
         }
         
-        defaults.setObject(sessionPriceList.currency + String(runningTotal), forKey: "SessionAmount")
+        defaults.set(sessionPriceList.currency + String(runningTotal), forKey: "SessionAmount")
         
         return runningTotal
     }
     
-    func getLabelNameFromTag(stepperTag: Int) -> UILabel {
+    func getLabelNameFromTag(_ stepperTag: Int) -> UILabel {
         switch stepperTag {
         
         case 0:
@@ -176,7 +176,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         }
     }
     
-    func getPriceFromTag(stepperTag: Int) -> Int {
+    func getPriceFromTag(_ stepperTag: Int) -> Int {
         
         switch stepperTag {
             
@@ -240,35 +240,35 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     }
     
     func refreshSessionPriceList(){
-        sessionPriceList.beer = defaults.integerForKey("beer")
-        sessionPriceList.redWine = defaults.integerForKey("redWine")
-        sessionPriceList.whiteWine = defaults.integerForKey("whiteWine")
-        sessionPriceList.spirit = defaults.integerForKey("spirit")
-        sessionPriceList.shots = defaults.integerForKey("shots")
-        sessionPriceList.cocktail = defaults.integerForKey("cocktail")
-        sessionPriceList.bubbles = defaults.integerForKey("bubbles")
-        sessionPriceList.softDrink = defaults.integerForKey("softDrink")
-        sessionPriceList.coffeeTea = defaults.integerForKey("coffeeTea")
-        sessionPriceList.barSnacks = defaults.integerForKey("barSnacks")
-        sessionPriceList.liteBites = defaults.integerForKey("liteBites")
-        sessionPriceList.mainMeal = defaults.integerForKey("mainMeal")
+        sessionPriceList.beer = defaults.integer(forKey: "beer")
+        sessionPriceList.redWine = defaults.integer(forKey: "redWine")
+        sessionPriceList.whiteWine = defaults.integer(forKey: "whiteWine")
+        sessionPriceList.spirit = defaults.integer(forKey: "spirit")
+        sessionPriceList.shots = defaults.integer(forKey: "shots")
+        sessionPriceList.cocktail = defaults.integer(forKey: "cocktail")
+        sessionPriceList.bubbles = defaults.integer(forKey: "bubbles")
+        sessionPriceList.softDrink = defaults.integer(forKey: "softDrink")
+        sessionPriceList.coffeeTea = defaults.integer(forKey: "coffeeTea")
+        sessionPriceList.barSnacks = defaults.integer(forKey: "barSnacks")
+        sessionPriceList.liteBites = defaults.integer(forKey: "liteBites")
+        sessionPriceList.mainMeal = defaults.integer(forKey: "mainMeal")
         
         
-        if (defaults.stringForKey("currency") != nil)
+        if (defaults.string(forKey: "currency") != nil)
         {
-            sessionPriceList.currency = defaults.stringForKey("currency")!
+            sessionPriceList.currency = defaults.string(forKey: "currency")!
         }
     }
     
     func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
+        return UIApplication.shared.delegate as! AppDelegate
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if (defaults.boolForKey("isAdFree") == false) {
+    override func viewDidAppear(_ animated: Bool) {
+        if (defaults.bool(forKey: "isAdFree") == false) {
             UIiAd.delegate = self
             UIiAd = self.appDelegate().UIiAd
-            UIiAd.frame = CGRectMake(0, 21, 0, 0)
+            UIiAd.frame = CGRect(x: 0, y: 21, width: 0, height: 0)
             view.addSubview(UIiAd)
         }
         
@@ -277,8 +277,8 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         runningTotalLabel.text = sessionPriceList.currency + " \(updateRunningTotal())"
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if (defaults.boolForKey("isAdFree") == false) {
+    override func viewWillDisappear(_ animated: Bool) {
+        if (defaults.bool(forKey: "isAdFree") == false) {
             UIiAd.delegate = nil
             UIiAd.removeFromSuperview()
         }
@@ -286,7 +286,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         saveSessionValues()
     }
     
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
+    func bannerViewDidLoadAd(_ banner: ADBannerView!) {
         //UIiAd.hidden = false
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
@@ -294,7 +294,7 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
         UIView.commitAnimations()
     }
     
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+    func bannerView(_ banner: ADBannerView!, didFailToReceiveAdWithError error: Error!) {
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
@@ -305,24 +305,24 @@ class BoozeTrackerViewController: UIViewController, ADBannerViewDelegate {
     
     func setupLocationEntry(){
         let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.Default
-        toolBar.translucent = true
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneLocation")
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BoozeTrackerViewController.doneLocation))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
         toolBar.setItems([spaceButton, doneButton], animated: false)
-        toolBar.userInteractionEnabled = true
+        toolBar.isUserInteractionEnabled = true
         
-        sessionLocation.keyboardType = UIKeyboardType.Default
+        sessionLocation.keyboardType = UIKeyboardType.default
         sessionLocation.inputAccessoryView = toolBar
     }
     
     func doneLocation(){
-        defaults.setObject(sessionLocation.text, forKey: "SessionLocation")
+        defaults.set(sessionLocation.text, forKey: "SessionLocation")
         sessionLocation.resignFirstResponder()
     }
     

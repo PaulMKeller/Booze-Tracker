@@ -13,13 +13,13 @@ import StoreKit
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, ADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     var pickerData: [String] = [String]()
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     var sessionPriceList: PriceList = PriceList(useZero: true)
     var UIiAd: ADBannerView = ADBannerView()
     
     //InApp Purchase
-    var productIDs: Array<String!> = []
-    var productsArray: Array<SKProduct!> = []
+    var productIDs: Array<String?> = []
+    var productsArray: Array<SKProduct?> = []
     var transactionInProgress = false
     
     @IBOutlet var beer: UITextField!
@@ -36,53 +36,53 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet var bigFood: UITextField!
     @IBOutlet var currency: UITextField!
     
-    @IBAction func AdFreePurchase(sender: AnyObject) {
+    @IBAction func AdFreePurchase(_ sender: AnyObject) {
         requestProductInfo()
         
         if transactionInProgress {
             return
         }
         
-        let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Buy the Ad free version?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Buy the Ad free version?", preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let buyAction = UIAlertAction(title: "Buy", style: UIAlertActionStyle.Default) { (action) -> Void in
-            let payment = SKPayment(product: self.productsArray[0] as SKProduct)
-            SKPaymentQueue.defaultQueue().addPayment(payment)
+        let buyAction = UIAlertAction(title: "Buy", style: UIAlertActionStyle.default) { (action) -> Void in
+            let payment = SKPayment(product: self.productsArray[0] as! SKProduct)
+            SKPaymentQueue.default().add(payment)
             self.transactionInProgress = true
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (action) -> Void in
             
         }
         
         actionSheetController.addAction(buyAction)
         actionSheetController.addAction(cancelAction)
         
-        presentViewController(actionSheetController, animated: true, completion: nil)
+        present(actionSheetController, animated: true, completion: nil)
         
         
     }
     
     
-    @IBAction func RestorePurchases(sender: AnyObject) {
+    @IBAction func RestorePurchases(_ sender: AnyObject) {
         
-        let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Restore Bar Bill Tracker Purchases?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionSheetController = UIAlertController(title: "Bar Bill Tracker", message: "Restore Bar Bill Tracker Purchases?", preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let restoreAction = UIAlertAction(title: "Restore", style: UIAlertActionStyle.Default) { (action) -> Void in
-            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+        let restoreAction = UIAlertAction(title: "Restore", style: UIAlertActionStyle.default) { (action) -> Void in
+            SKPaymentQueue.default().restoreCompletedTransactions()
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (action) -> Void in
             
         }
         
         actionSheetController.addAction(restoreAction)
         actionSheetController.addAction(cancelAction)
         
-        presentViewController(actionSheetController, animated: true, completion: nil)
+        present(actionSheetController, animated: true, completion: nil)
     }
     
-    @IBAction func saveSettings(sender: AnyObject) {
+    @IBAction func saveSettings(_ sender: AnyObject) {
         saveUserDefaults()
     }
     
@@ -98,22 +98,22 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         pickerView.dataSource = self
         
         let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.Default
-        toolBar.translucent = true
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsViewController.donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
         toolBar.setItems([spaceButton, doneButton], animated: false)
-        toolBar.userInteractionEnabled = true
+        toolBar.isUserInteractionEnabled = true
         
         currency.inputView = pickerView
         currency.inputAccessoryView = toolBar
         
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.default().add(self)
         
         loadUserDefaults()
         FormLoad()
@@ -126,21 +126,21 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return  pickerData[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currency.text = pickerData[row]
     }
     
@@ -163,23 +163,23 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func loadUserDefaults(){
-        sessionPriceList.beer = defaults.integerForKey("beer")
-        sessionPriceList.redWine = defaults.integerForKey("redWine")
-        sessionPriceList.whiteWine = defaults.integerForKey("whiteWine")
-        sessionPriceList.spirit = defaults.integerForKey("spirit")
-        sessionPriceList.shots = defaults.integerForKey("shots")
-        sessionPriceList.cocktail = defaults.integerForKey("cocktail")
-        sessionPriceList.bubbles = defaults.integerForKey("bubbles")
-        sessionPriceList.softDrink = defaults.integerForKey("softDrink")
-        sessionPriceList.coffeeTea = defaults.integerForKey("coffeeTea")
-        sessionPriceList.barSnacks = defaults.integerForKey("barSnacks")
-        sessionPriceList.liteBites = defaults.integerForKey("liteBites")
-        sessionPriceList.mainMeal = defaults.integerForKey("mainMeal")
+        sessionPriceList.beer = defaults.integer(forKey: "beer")
+        sessionPriceList.redWine = defaults.integer(forKey: "redWine")
+        sessionPriceList.whiteWine = defaults.integer(forKey: "whiteWine")
+        sessionPriceList.spirit = defaults.integer(forKey: "spirit")
+        sessionPriceList.shots = defaults.integer(forKey: "shots")
+        sessionPriceList.cocktail = defaults.integer(forKey: "cocktail")
+        sessionPriceList.bubbles = defaults.integer(forKey: "bubbles")
+        sessionPriceList.softDrink = defaults.integer(forKey: "softDrink")
+        sessionPriceList.coffeeTea = defaults.integer(forKey: "coffeeTea")
+        sessionPriceList.barSnacks = defaults.integer(forKey: "barSnacks")
+        sessionPriceList.liteBites = defaults.integer(forKey: "liteBites")
+        sessionPriceList.mainMeal = defaults.integer(forKey: "mainMeal")
         
         
-        if (defaults.stringForKey("currency") != nil)
+        if (defaults.string(forKey: "currency") != nil)
         {
-            sessionPriceList.currency = defaults.stringForKey("currency")!
+            sessionPriceList.currency = defaults.string(forKey: "currency")!
         }
     }
     
@@ -199,49 +199,49 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         sessionPriceList.mainMeal = Int(bigFood.text!)!
         sessionPriceList.currency = currency.text!
         
-        defaults.setInteger(sessionPriceList.beer, forKey: "beer")
-        defaults.setInteger(sessionPriceList.redWine, forKey: "redWine")
-        defaults.setInteger(sessionPriceList.whiteWine, forKey: "whiteWine")
-        defaults.setInteger(sessionPriceList.spirit, forKey: "spirit")
-        defaults.setInteger(sessionPriceList.shots, forKey: "shots")
-        defaults.setInteger(sessionPriceList.cocktail, forKey: "cocktail")
-        defaults.setInteger(sessionPriceList.bubbles, forKey: "bubbles")
-        defaults.setInteger(sessionPriceList.softDrink, forKey: "softDrink")
-        defaults.setInteger(sessionPriceList.coffeeTea, forKey: "coffeeTea")
-        defaults.setInteger(sessionPriceList.barSnacks, forKey: "barSnacks")
-        defaults.setInteger(sessionPriceList.liteBites, forKey: "liteBites")
-        defaults.setInteger(sessionPriceList.mainMeal, forKey: "mainMeal")
+        defaults.set(sessionPriceList.beer, forKey: "beer")
+        defaults.set(sessionPriceList.redWine, forKey: "redWine")
+        defaults.set(sessionPriceList.whiteWine, forKey: "whiteWine")
+        defaults.set(sessionPriceList.spirit, forKey: "spirit")
+        defaults.set(sessionPriceList.shots, forKey: "shots")
+        defaults.set(sessionPriceList.cocktail, forKey: "cocktail")
+        defaults.set(sessionPriceList.bubbles, forKey: "bubbles")
+        defaults.set(sessionPriceList.softDrink, forKey: "softDrink")
+        defaults.set(sessionPriceList.coffeeTea, forKey: "coffeeTea")
+        defaults.set(sessionPriceList.barSnacks, forKey: "barSnacks")
+        defaults.set(sessionPriceList.liteBites, forKey: "liteBites")
+        defaults.set(sessionPriceList.mainMeal, forKey: "mainMeal")
         defaults.setValue(sessionPriceList.currency, forKey: "currency")
     }
     
     func setNumericKeyPad(){
         
         let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.Default
-        toolBar.translucent = true
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "doneNumericPad")
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsViewController.doneNumericPad))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
         toolBar.setItems([spaceButton, doneButton], animated: true)
-        toolBar.userInteractionEnabled = true
+        toolBar.isUserInteractionEnabled = true
 
         
-        beer.keyboardType = UIKeyboardType.NumberPad
-        redWine.keyboardType = UIKeyboardType.NumberPad
-        whiteWine.keyboardType = UIKeyboardType.NumberPad
-        spirit.keyboardType = UIKeyboardType.NumberPad
-        shots.keyboardType = UIKeyboardType.NumberPad
-        cocktail.keyboardType = UIKeyboardType.NumberPad
-        bubbles.keyboardType = UIKeyboardType.NumberPad
-        softDrink.keyboardType = UIKeyboardType.NumberPad
-        coffeeTea.keyboardType = UIKeyboardType.NumberPad
-        barSnacks.keyboardType = UIKeyboardType.NumberPad
-        liteBites.keyboardType = UIKeyboardType.NumberPad
-        bigFood.keyboardType = UIKeyboardType.NumberPad
+        beer.keyboardType = UIKeyboardType.numberPad
+        redWine.keyboardType = UIKeyboardType.numberPad
+        whiteWine.keyboardType = UIKeyboardType.numberPad
+        spirit.keyboardType = UIKeyboardType.numberPad
+        shots.keyboardType = UIKeyboardType.numberPad
+        cocktail.keyboardType = UIKeyboardType.numberPad
+        bubbles.keyboardType = UIKeyboardType.numberPad
+        softDrink.keyboardType = UIKeyboardType.numberPad
+        coffeeTea.keyboardType = UIKeyboardType.numberPad
+        barSnacks.keyboardType = UIKeyboardType.numberPad
+        liteBites.keyboardType = UIKeyboardType.numberPad
+        bigFood.keyboardType = UIKeyboardType.numberPad
         
         beer.inputAccessoryView = toolBar
         redWine.inputAccessoryView = toolBar
@@ -278,20 +278,20 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
+        return UIApplication.shared.delegate as! AppDelegate
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if (defaults.boolForKey("isAdFree") == false) {
+    override func viewDidAppear(_ animated: Bool) {
+        if (defaults.bool(forKey: "isAdFree") == false) {
             UIiAd.delegate = self
             UIiAd = self.appDelegate().UIiAd
-            UIiAd.frame = CGRectMake(0, 21, 0, 0)
+            UIiAd.frame = CGRect(x: 0, y: 21, width: 0, height: 0)
             view.addSubview(UIiAd)
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if (defaults.boolForKey("isAdFree") == false) {
+    override func viewWillDisappear(_ animated: Bool) {
+        if (defaults.bool(forKey: "isAdFree") == false) {
             UIiAd.delegate = nil
             UIiAd.removeFromSuperview()
         }
@@ -299,7 +299,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         saveUserDefaults()
     }
     
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
+    func bannerViewDidLoadAd(_ banner: ADBannerView!) {
         //UIiAd.hidden = false
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
@@ -307,7 +307,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         UIView.commitAnimations()
     }
     
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+    func bannerView(_ banner: ADBannerView!, didFailToReceiveAdWithError error: Error!) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
         UIiAd.alpha = 0
@@ -328,7 +328,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if response.products.count != 0 {
             for product in response.products {
                 productsArray.append(product as SKProduct)
@@ -343,20 +343,20 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions as [SKPaymentTransaction] {
             switch transaction.transactionState {
-            case SKPaymentTransactionState.Purchased:
-                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+            case SKPaymentTransactionState.purchased:
+                SKPaymentQueue.default().finishTransaction(transaction)
                 transactionInProgress = false
-                defaults.setBool(true, forKey: "isAdFree")
+                defaults.set(true, forKey: "isAdFree")
                 self.appDelegate().isAdFree = true
                 UIiAd.delegate = nil
                 UIiAd.removeFromSuperview()
-            case SKPaymentTransactionState.Failed:
-                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+            case SKPaymentTransactionState.failed:
+                SKPaymentQueue.default().finishTransaction(transaction)
                 transactionInProgress = false
-                defaults.setBool(false, forKey: "isAdFree")
+                defaults.set(false, forKey: "isAdFree")
                 self.appDelegate().isAdFree = false
                 
             default:

@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
 
     //var bannerView: ADBannerView!
     var UIiAd: ADBannerView = ADBannerView()
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     
     @IBOutlet var lastSession: UILabel!
     @IBOutlet var sessionAmount: UILabel!
@@ -38,11 +38,11 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        if (defaults.stringForKey("SessionLocation") != nil && defaults.stringForKey("SessionLocation") != "")
+    override func viewWillAppear(_ animated: Bool) {
+        if (defaults.string(forKey: "SessionLocation") != nil && defaults.string(forKey: "SessionLocation") != "")
         {
-            lastSession.text = defaults.stringForKey("SessionLocation")
-            sessionAmount.text = defaults.stringForKey("SessionAmount")
+            lastSession.text = defaults.string(forKey: "SessionLocation")
+            sessionAmount.text = defaults.string(forKey: "SessionAmount")
         }
         else
         {
@@ -58,26 +58,26 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
     }
     
     func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
+        return UIApplication.shared.delegate as! AppDelegate
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if (defaults.boolForKey("isAdFree") == false) {
+    override func viewDidAppear(_ animated: Bool) {
+        if (defaults.bool(forKey: "isAdFree") == false) {
             UIiAd.delegate = self
             UIiAd = self.appDelegate().UIiAd
-            UIiAd.frame = CGRectMake(0, 21, 0, 0)
+            UIiAd.frame = CGRect(x: 0, y: 21, width: 0, height: 0)
             view.addSubview(UIiAd)
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if (defaults.boolForKey("isAdFree") == false) {
+    override func viewWillDisappear(_ animated: Bool) {
+        if (defaults.bool(forKey: "isAdFree") == false) {
             UIiAd.delegate = nil
             UIiAd.removeFromSuperview()
         }
     }
     
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
+    func bannerViewDidLoadAd(_ banner: ADBannerView!) {
         //UIiAd.hidden = false
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)
@@ -85,7 +85,7 @@ class HomeViewController: UIViewController, ADBannerViewDelegate {
         UIView.commitAnimations()
     }
     
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+    func bannerView(_ banner: ADBannerView!, didFailToReceiveAdWithError error: Error!) {
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1)

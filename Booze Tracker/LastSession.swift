@@ -10,13 +10,13 @@ import Foundation
 
 class LastSession {
     
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     var sessionLocation: String
     var sessionAmount: String
     
     init (){
-        sessionLocation = defaults.stringForKey("SessionLocation")!
-        sessionAmount = defaults.stringForKey("SessionAmount")!
+        sessionLocation = defaults.string(forKey: "SessionLocation")!
+        sessionAmount = defaults.string(forKey: "SessionAmount")!
     }
     
 }

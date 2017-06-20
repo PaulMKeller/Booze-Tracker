@@ -299,6 +299,7 @@
 					DA27D5421C0C9C62001A132D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 6CGSY8527L;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -307,10 +308,12 @@
 					};
 					DA27D5581C0C9C62001A132D = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = DA27D5421C0C9C62001A132D;
 					};
 					DA27D5631C0C9C62001A132D = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = DA27D5421C0C9C62001A132D;
 					};
 				};
@@ -540,6 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -556,6 +560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -567,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Booze Tracker.app/Booze Tracker";
 			};
 			name = Debug;
@@ -579,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Booze Tracker.app/Booze Tracker";
 			};
 			name = Release;
@@ -590,6 +597,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Booze Tracker";
 				USES_XCTRUNNER = YES;
 			};
@@ -602,6 +610,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlanetKGames.Booze-TrackerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Booze Tracker";
 				USES_XCTRUNNER = YES;
 			};

@@ -9,7 +9,7 @@
 import Foundation
 
 class PriceList {
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     var beer: Int
     var redWine: Int
     var whiteWine: Int
@@ -44,19 +44,19 @@ class PriceList {
         }
         else
         {
-            self.beer = defaults.integerForKey("beer")
-            self.redWine = defaults.integerForKey("redWine")
-            self.whiteWine = defaults.integerForKey("whiteWine")
-            self.spirit = defaults.integerForKey("spirit")
-            self.shots = defaults.integerForKey("shots")
-            self.cocktail = defaults.integerForKey("cocktail")
-            self.bubbles = defaults.integerForKey("bubbles")
-            self.softDrink = defaults.integerForKey("softDrink")
-            self.coffeeTea = defaults.integerForKey("coffeeTea")
-            self.barSnacks = defaults.integerForKey("barSnacks")
-            self.liteBites = defaults.integerForKey("liteBites")
-            self.mainMeal = defaults.integerForKey("mainMeal")
-            self.currency = defaults.stringForKey("currency")!
+            self.beer = defaults.integer(forKey: "beer")
+            self.redWine = defaults.integer(forKey: "redWine")
+            self.whiteWine = defaults.integer(forKey: "whiteWine")
+            self.spirit = defaults.integer(forKey: "spirit")
+            self.shots = defaults.integer(forKey: "shots")
+            self.cocktail = defaults.integer(forKey: "cocktail")
+            self.bubbles = defaults.integer(forKey: "bubbles")
+            self.softDrink = defaults.integer(forKey: "softDrink")
+            self.coffeeTea = defaults.integer(forKey: "coffeeTea")
+            self.barSnacks = defaults.integer(forKey: "barSnacks")
+            self.liteBites = defaults.integer(forKey: "liteBites")
+            self.mainMeal = defaults.integer(forKey: "mainMeal")
+            self.currency = defaults.string(forKey: "currency")!
         }
     }
 }
